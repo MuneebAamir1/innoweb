@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contact Us</title>
+		<style>
+			* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+			}
+			
+			body {
+			background-color: #f1f1f1;
+			color: #333;
+			line-height: 1.6;
+			}
+			
+			.navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 80px;
+			background: #2c3e5086;
+			padding: 0 20px;
+			position: fixed;
+			width: 100%;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			}
+			
+			.navbar .logo {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			animation: fadeIn 2s ease-out;
+			}
+			
+			.navbar img {
+			width: 40px;
+			}
+			
+			.navbar h4 {
+			font-size: 24px;
+			color: #fff;
+			}
+			
+			.navbar ul {
+			display: flex;
+			list-style: none;
+			padding: 0;
+			}
+			
+			.navbar li {
+			position: relative;
+			}
+			
+			.navbar a {
+			padding: 14px 20px;
+			color: #fff;
+			text-decoration: none;
+			position: relative;
+			transition: color 0.3s;
+			}
+			
+			.navbar a:hover {
+			color: #6C7DFF;
+			}
+			
+			.navbar a::after {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 50%;
+			width: 100%;
+			height: 2px;
+			background-color: #6C7DFF;
+			transform: translateX(-50%) scaleX(0);
+			transition: transform 0.3s ease;
+			}
+			
+			.navbar a:hover::after {
+			transform: translateX(-50%) scaleX(1);
+			}
+			
+			.navbar .dropdown {
+			position: relative;
+			}
+			
+			.navbar .dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #34495E;
+			min-width: 160px;
+			z-index: 1;
+			top: 100%;
+			left: 0;
+			border-radius: 4px;
+			opacity: 0;
+			transform: translateY(-20px);
+			pointer-events: none;
+			transition: opacity 0.3s, transform 0.3s;
+			}
+			
+			 .navbar .dropdown:hover .dropdown-content {
+			display: block;
+			opacity: 1;
+			pointer-events: auto;
+			transform: translateY(0);
+			}
+			
+			.navbar .dropdown-content li {
+			padding: 10px;
+			text-align: center;
+			}
+
+			.navbar .dropdown-content a {
+			color: white;
+			display: block;
+			transition: background-color 0.3s;
+			}
+			
+			 .navbar .dropdown-content a:hover {
+			background-color: #6C7DFF;
+			color: black;
+			}
+			
+			.footer {
+			background-color: #2C3E50;
+			color: #ecf0f1;
+			padding: 30px 15px;
+			font-family: Arial, sans-serif;
+			text-align: center;
+			}
+			
+			.footer-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 40px;
+			max-width: 1100px;
+			margin: 0 auto;
+			}
+			
+			.footer-section {
+			flex: 1;
+			min-width: 200px;
+			}
+			
+			.footer-section h3 {
+			font-size: 1.2rem;
+			margin-bottom: 10px;
+			text-transform: uppercase;
+			}
+	
+			.footer-section ul {
+			list-style: none;
+			padding: 0;
+			}
+
+			.footer-section ul li {
+			margin: 8px 0;
+			}
+			
+			.footer-section ul li a {
+			color: #bdc3c7;
+			text-decoration: none;
+			}
+
+			.footer-section ul li a:hover {
+			text-decoration: underline;
+			}
+
+			.footer-section form input {
+			width: 80%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: none;
+			border-radius: 4px;
+			}
+			
+			.footer-section form button {
+			background-color: #E74C3C;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 4px;
+			cursor: pointer;
+			}
+
+			.footer-section form button:hover {
+			background-color: #C0392B;
+			}
+
+			 .social-icons {
+			margin-top: 10px;
+			}
+
+			.social-icons a {
+			color: #ecf0f1;
+			margin: 0 10px;
+			font-size: 1.5rem;
+			text-decoration: none;
+			}
+
+			.social-icons a:hover {
+			color: #E74C3C;
+			}
+
+			 .footer-bottom {
+			border-top: 1px solid #34495e;
+			margin-top: 20px;
+			padding: 10px 0;
+			font-size: 0.9rem;
+			color: #bdc3c7;
+			}
+			
+			.iframe-1 {
+			display: block;
+			margin: 20px auto;
+			width: 70%; 
+			height: 500px;
+			border: none;
+			}
+			
+			.button1 {
+			background-color: #E74C3C;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 4px;
+			cursor: pointer;
+			}
+			
+			.button1:hover {
+			background-color: #C0392B;
+			}
+			
+			.input1 {
+			width: 80%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: none;
+			border-radius: 4px;
+			}
+			.main-section1 {
+			display: block;
+			margin: 100px auto;
+			width: 60%;
+			height: 50%;
+			text-align: center;
+			}
+			
+			.labels {
+			text-align: left;
+			margin-left: 95px;
+			margin-bottom: 5px;
+			}
+			
+			</style>
+	</head>
+	<body>
+	<!--NAVBAR-->
+	<div class="navbar">
+		<div class="logo">
+			<img src="insta.png" alt="Logo">
+			<h4>Inno Web</h4>
+		</div>
+		<ul class="navbar-links">
+			<li><a href="#">HOME</a></li>
+			<li><a href="#">ABOUT</a></li>
+			<li><a href="#">CONTACT</a></li>
+			<li class="dropdown">
+				<a href="#">INDIVIDUAL PAGES <span class="narrow">&#9660</span></a>
+				<ul class="dropdown-content">
+					<li><a href="#">Muneeb Aamir</a></li>
+					<li><a href="#">Aleeha Abrar</a></li>
+					<li><a href="#">Awais Irfan</a></li>
+					<li><a href="#">Taba Asghar</a></li>
+					<li><a href="#">Talha Abdullah</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<!--MAIN-->
+	<div class="main-container">
+		<div class="main-section1">
+			<h1>Send Us a Message</h1>
+			<form action="/submit_form" method="POST">
+				<div class="labels">
+				<label for="name">Name:</label><br>
+				</div>
+				<input type="text" id="name" name="name" class="input1" placeholder="Your Name" required><br>
+				<div class="labels">
+				<label for="email">Email:</label><br>
+				</div>
+				<input type="email" id="email" name="email" class="input1" placeholder="Your Email" required><br>
+				<div class="labels">
+				<label for="message">Message:</label><br>
+				</div>
+				<textarea id="message" name="message" rows="5" class="input1"  placeholder="Your Message" required></textarea><br>
+				<button type="submit" class="button1">Send Message</button>
+			</form>
+		</div>
+		<div class="main-section2">
+			<iframe src="https://calendly.com/innoweb" title="Inno Web" name="iframe1" class="iframe-1"></iframe>
+		</div>
+	</div>
+	<a href="https://calendly.com/innoweb" target="iframe1" style="opacity: 0; pointer-events: none;">Inno Web</a
+	<!--FOOTER-->
+	<footer>
+		<div class="footer">
+			<div class="footer-container">
+				<div class="footer-section">
+					<h3>About Us</h3>
+					<ul>
+						<li><a href="#">Our Story</a></li>
+						<li><a href="#">Mission & Vision</a></li>
+						<li><a href="#">Our Team</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h3>Services</h3>
+					<ul>
+						<li><a href="#">Web Development</a></li>
+						<li><a href="#">UI/UX Design</a></li>
+						<li><a href="#">Mobile Apps</a></li>
+						<li><a href="#">Digital Marketing</a></li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h3>Newsletter</h3>
+					<form>
+						<input type="email" placeholder="Enter your email">
+						<button type="submit">Subscribe</button>
+					</form>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2024 Inno Web. All Rights Reserved</p>
+			</div>
+		</div>
+	</footer>
+	</body>
+</html>
